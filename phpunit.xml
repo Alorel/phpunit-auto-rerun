@@ -14,11 +14,11 @@
 >
 
     <testsuites>
-        <testsuite name="Annotations">
-            <directory>./test/Source/Annotations</directory>
+        <testsuite name="Source">
+            <directory>./test/Source</directory>
         </testsuite>
-        <testsuite name="General">
-            <directory>./test/Source/General</directory>
+        <testsuite name="Runtime">
+            <directory>./test/Runtime</directory>
         </testsuite>
     </testsuites>
 

@@ -1,6 +1,17 @@
 <?php
 
-    require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+    namespace Alorel\PHPUnitRetryRunner;
+
+    $vendorDir = __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR;
+
+    /** @noinspection PhpIncludeInspection */
+    require_once $vendorDir . 'autoload.php';
+
+    define(
+        'RUNTIME_BOOTSTRAP',
+        '"' . $vendorDir . 'bin' . DIRECTORY_SEPARATOR . 'phpunit" --no-configuration --no-coverage --bootstrap "'
+        . __FILE__ . '" --no-globals-backup '
+    );
 
     spl_autoload_register(function ($class) {
         $class = str_replace('Alorel\PHPUnitRetryRunner\\', '', $class);
@@ -12,3 +23,8 @@
             require_once $loc;
         }
     });
+
+    function eimplode($cmd, &$out, &$code) {
+        exec($cmd, $o, $code);
+        $out = implode(PHP_EOL, $o);
+    }

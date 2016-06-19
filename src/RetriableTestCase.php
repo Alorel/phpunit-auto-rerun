@@ -71,7 +71,7 @@
                             PHPUnitReflection::getStatus()->setValue($this, null);
 
                             fwrite(STDERR,
-                                   $this->getName(false) . ' failed; waiting for ' . $this->sleepTime
+                                   $this->getName(false) . ' failed; waiting for ' . $sleepTime
                                    . ' seconds before retry # ' . $numRuns . '/' . $this->retryCount . PHP_EOL);
 
                             sleep($sleepTime);
