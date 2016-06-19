@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alorel\PHPUnitRetryRunner\General;
+    namespace Alorel\PHPUnitRetryRunner\Source\General;
 
     use Alorel\PHPUnitRetryRunner\PHPUnitReflection;
 

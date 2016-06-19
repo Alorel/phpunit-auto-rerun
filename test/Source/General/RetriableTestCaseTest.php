@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alorel\PHPUnitRetryRunner\General;
+    namespace Alorel\PHPUnitRetryRunner\Source\General;
 
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithAnnotations;
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithoutAnnotations;
@@ -20,6 +20,15 @@
          * @var \ReflectionProperty
          */
         private static $rAnnotationsRetryCount;
+        /**
+         * @var \ReflectionProperty
+         */
+        private static $rName;
+
+        /**
+         * @var \ReflectionMethod
+         */
+        private static $rParseMethodAnnotations;
 
         public static function setUpBeforeClass() {
             self::$rAnnotations = new \ReflectionClass(RetriableTestCase::class);
@@ -29,16 +38,12 @@
 
             self::$rAnnotationsRetryCount = self::$rAnnotations->getProperty('retryCount');
             self::$rAnnotationsRetryCount->setAccessible(true);
-        }
 
-        function testThisReflect() {
-            $prop = self::$rAnnotations->getProperty('thisReflect');
-            $prop->setAccessible(true);
+            self::$rParseMethodAnnotations = self::$rAnnotations->getMethod('parseMethodAnnotations');
+            self::$rParseMethodAnnotations->setAccessible(true);
 
-            $this->assertEquals(
-                new \ReflectionClass(CaseWithAnnotations::class),
-                $prop->getValue(new CaseWithAnnotations())
-            );
+            self::$rName = new \ReflectionProperty(\PHPUnit_Framework_TestCase::class, 'name');
+            self::$rName->setAccessible(true);
         }
 
         /** @dataProvider pCountsOnConstruct */
@@ -47,6 +52,27 @@
 
             $this->assertEquals($expectedRetries, self::$rAnnotationsRetryCount->getValue($o));
             $this->assertEquals($expectedSleepTime, self::$rAnnotationsSleepTime->getValue($o));
+        }
+
+        /** @dataProvider pMethodAnnotations */
+        function testMethodAnnotations($method, $expectedSleep, $expectedRetry) {
+            $actualSleep = null;
+            $actualRetry = null;
+
+            $obj = new CaseWithAnnotations();
+            self::$rName->setValue($obj, $method);
+
+            self::$rParseMethodAnnotations->invokeArgs($obj, [&$actualSleep, &$actualRetry]);
+
+            $this->assertEquals($expectedSleep, $actualSleep);
+            $this->assertEquals($expectedRetry, $actualRetry);
+        }
+
+        function pMethodAnnotations() {
+            yield 'sleep()' => ['sleep', 100, 15];
+            yield 'retry()' => ['retry', 11, 100];
+            yield 'sleepRetry()' => ['sleepRetry', 100, 100];
+            yield 'noAnno()' => ['noAnno', 11, 15];
         }
 
         function pCountsOnConstruct() {

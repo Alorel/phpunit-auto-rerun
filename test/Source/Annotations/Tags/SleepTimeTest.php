@@ -1,6 +1,6 @@
 <?php
 
-    namespace Alorel\PHPUnitRetryRunner\Annotations\Tags;
+    namespace Alorel\PHPUnitRetryRunner\Source\Annotations\Tags;
     use Alorel\PHPUnitRetryRunner\Annotations\DocBlockFactoryManager;
     use Alorel\PHPUnitRetryRunner\Annotations\Tags\SleepTime as TagClass;
     use Alorel\PHPUnitRetryRunner\Fixtures\SleepTimeFixture as Fix;
