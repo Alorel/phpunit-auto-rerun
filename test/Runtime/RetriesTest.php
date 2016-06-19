@@ -6,7 +6,7 @@
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\TestFailer;
     use ReflectionClass as RC;
 
-    class RuntimeTest extends \PHPUnit_Framework_TestCase {
+    class RetriesTest extends \PHPUnit_Framework_TestCase {
 
         function testException() {
             exec(RUNTIME_BOOTSTRAP . (new RC(ExceptionThrower::class))->getFileName(), $out, $ret);
