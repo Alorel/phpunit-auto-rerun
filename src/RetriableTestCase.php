@@ -17,7 +17,8 @@
 
         private $thisReflect;
 
-        function __construct(...$args) {
+        /** @noinspection PhpMissingParentConstructorInspection */
+        function __construct() {
             $this->thisReflect = new ReflectionClass($this);
 
             if ($doc = $this->thisReflect->getDocComment()) {
@@ -30,8 +31,7 @@
                     $this->retryCount = (int)$parsed->getTagsByName(RetryCount::NAME)[0]->__toString();
                 }
             }
-
-            parent::__construct(...$args);
+            call_user_func_array('parent::__construct', func_get_args());
         }
 
         private function parseMethodAnnotations(&$sleepTime, &$retryCount) {
@@ -68,7 +68,7 @@
 
                         return;
                     } catch (Exception $e) {
-                        if ($numRuns == $this->retryCount) {
+                        if ($numRuns == $retryCount) {
                             throw $e;
                         } else {
                             PHPUnitReflection::getMessage()->setValue($this, '');

@@ -4,13 +4,13 @@
 
     use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class ExceptionThrower extends RetriableTestCase {
+    class ExceptionThrowerTest extends RetriableTestCase {
 
         private $count = 1;
 
         /**
-         * @retryCount 5
-         * @sleepTime  0
+         * @retryCount   5
+         * @sleepTime    0
          */
         function testExc() {
             $this->assertEquals(0, ($this->count++) % 3);

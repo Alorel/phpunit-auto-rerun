@@ -11,6 +11,7 @@
         /**
          * @retryCount 5
          * @sleepTime  0
+         * @dataProvider provider
          */
         function testExc() {
             $this->assertEquals(3, $this->count++);
