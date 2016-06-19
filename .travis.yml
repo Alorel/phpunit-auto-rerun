@@ -13,8 +13,8 @@ php:
 
 env:
  matrix:
-  - FILTER=Runtime
-  - FILTER=Source
+  - SUITE=Runtime
+  - SUITE=Source
 
 before_install:
  - git config --global user.name Alorel
