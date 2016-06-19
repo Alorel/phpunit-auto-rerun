@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2016 Alorel, https://github.com/Alorel
+  ~ Licenced under MIT: https://github.com/Alorel/dropbox-v2-php/blob/master/LICENSE
+  -->
+
+<phpunit backupGlobals="true"
+         backupStaticAttributes="false"
+         colors="true"
+         bootstrap=".phpunit.php"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="true"
+         syntaxCheck="true"
+         verbose="true"
+>
+
+    <testsuites>
+        <testsuite name="Annotations">
+            <directory>./test/Annotations</directory>
+        </testsuite>
+        <testsuite name="General">
+            <directory>./test/General</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src</directory>
+
+            <exclude>
+                <directory suffix=".php">vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>
+
+    <php>
+        <ini name="allow_url_fopen" value="1"/>
+        <ini name="display_errors" value="stderr"/>
+        <ini name="xdebug.auto_trace" value="0"/>
+        <ini name="xdebug.cli_color" value="1"/>
+        <ini name="xdebug.collect_assignments" value="0"/>
+        <ini name="xdebug.collect_includes" value="0"/>
+        <ini name="xdebug.collect_params" value="0"/>
+        <ini name="xdebug.collect_return" value="0"/>
+        <ini name="xdebug.collect_vars" value="0"/>
+        <ini name="xdebug.coverage_enable" value="1"/>
+    </php>
+</phpunit>

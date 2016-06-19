@@ -1,0 +1,42 @@
+{
+  "name": "alorel/todo",
+  "description": "todo",
+  "prefer-stable": true,
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/Alorel/phpunit-auto-rerun",
+  "keywords": [
+    "phpunit",
+    "auto",
+    "rerun",
+    "failed",
+    "test"
+  ],
+  "authors": [
+    {
+      "name": "Art",
+      "email": "a.molcanovas@gmail.com",
+      "role": "Developer",
+      "homepage": "https://github.com/Alorel"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Alorel/phpunit-auto-rerun/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alorel\\PHPUnitRetryRunner\\": "src"
+    },
+    "files": [
+      "src/PHPUnitReflection.php",
+      "src/Annotations/DocBlockFactoryManager.php"
+    ]
+  },
+  "require": {
+    "phpdocumentor/reflection-docblock": "^3.0"
+  },
+  "require-dev": {
+    "raveren/kint": "^1.0",
+    "phpunit/phpunit": "^5.0"
+  }
+}
