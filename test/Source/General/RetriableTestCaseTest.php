@@ -79,4 +79,9 @@
             yield [CaseWithAnnotations::class, 15, 11];
             yield [CaseWithoutAnnotations::class, 0, 3];
         }
+
+        function testParamPassing() {
+            $x = new RetriableTestCase('foo');
+            $this->assertEquals('foo',$x->getName(false));
+        }
     }
