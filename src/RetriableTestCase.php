@@ -50,6 +50,10 @@
             }
         }
 
+        /**
+         * @throws Exception
+         * @codeCoverageIgnore Won't be picked up as these are tested in separate processes
+         */
         public function runBare() {
             $this->parseMethodAnnotations($sleepTime, $retryCount);
 
@@ -72,7 +76,7 @@
 
                             fwrite(STDERR,
                                    $this->getName(false) . ' failed; waiting for ' . $sleepTime
-                                   . ' seconds before retry # ' . $numRuns . '/' . $this->retryCount . PHP_EOL);
+                                   . ' seconds before retry # ' . $numRuns . '/' . $retryCount . PHP_EOL);
 
                             sleep($sleepTime);
                         }
