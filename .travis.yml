@@ -11,8 +11,8 @@ php:
  - hhvm
  - nightly
 
-matrix:
- env:
+env:
+ matrix:
   - FILTER=Source
 
 before_install:
