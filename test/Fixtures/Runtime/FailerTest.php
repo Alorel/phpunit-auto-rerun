@@ -4,7 +4,7 @@
 
     use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class TestFailer extends RetriableTestCase {
+    class FailerTest extends RetriableTestCase {
 
         private $count = 1;
 

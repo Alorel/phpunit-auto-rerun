@@ -3,8 +3,8 @@
     namespace Alorel\PHPUnitRetryRunner\Runtime;
 
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\ExceptionThrowerTest;
-    use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\TestFailer;
-    use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\TestStillFailing;
+    use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\FailerTest;
+    use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\StillFailingTest;
     use ReflectionClass as RC;
 
     class RetriesTest extends \PHPUnit_Framework_TestCase {
@@ -17,7 +17,7 @@
 
         function pTestExitZero() {
             yield ExceptionThrowerTest::class => [ExceptionThrowerTest::class];
-            yield TestFailer::class => [TestFailer::class];
+            yield FailerTest::class => [FailerTest::class];
         }
 
         /** @dataProvider pTestFail */
@@ -31,8 +31,8 @@
         }
 
         function pTestFail() {
-            yield TestStillFailing::class => [
-                TestStillFailing::class,
+            yield StillFailingTest::class => [
+                StillFailingTest::class,
                 'Tests: 1, Assertions: 3, Failures: 1.'
             ];
         }

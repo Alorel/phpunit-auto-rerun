@@ -4,7 +4,7 @@
 
     use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class TestStillFailing extends RetriableTestCase {
+    class StillFailingTest extends RetriableTestCase {
 
         /**
          * @sleepTime  0
