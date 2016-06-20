@@ -4,7 +4,7 @@
 
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithAnnotations;
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithoutAnnotations;
-    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
+    use PHPUnit_Retriable_TestCase;
 
     class RetriableTestCaseTest extends \PHPUnit_Framework_TestCase {
 
@@ -31,7 +31,7 @@
         private static $rParseMethodAnnotations;
 
         public static function setUpBeforeClass() {
-            self::$rAnnotations = new \ReflectionClass(RetriableTestCase::class);
+            self::$rAnnotations = new \ReflectionClass(PHPUnit_Retriable_TestCase::class);
 
             self::$rAnnotationsSleepTime = self::$rAnnotations->getProperty('sleepTime');
             self::$rAnnotationsSleepTime->setAccessible(true);
@@ -81,7 +81,7 @@
         }
 
         function testParamPassing() {
-            $x = new RetriableTestCase('foo');
+            $x = new PHPUnit_Retriable_TestCase('foo');
             $this->assertEquals('foo',$x->getName(false));
         }
     }

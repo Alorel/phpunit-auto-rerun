@@ -2,13 +2,13 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures;
 
-    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
+    use PHPUnit_Retriable_TestCase;
 
     /**
      * @retryCount 15
      * @sleepTime  11
      */
-    class CaseWithAnnotations extends RetriableTestCase {
+    class CaseWithAnnotations extends PHPUnit_Retriable_TestCase {
 
         /**
          * @sleepTime 100
@@ -25,7 +25,7 @@
         }
 
         function noAnno() {
-            
+
         }
 
         /**

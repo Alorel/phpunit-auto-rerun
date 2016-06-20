@@ -2,8 +2,8 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures;
 
-    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
+    use PHPUnit_Retriable_TestCase;
 
-    class CaseWithoutAnnotations extends RetriableTestCase {
+    class CaseWithoutAnnotations extends PHPUnit_Retriable_TestCase {
 
     }

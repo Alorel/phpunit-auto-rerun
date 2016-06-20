@@ -1,15 +1,10 @@
 <?php
 
-    namespace Alorel\PHPUnitRetryRunner;
-
     use Alorel\PHPUnitRetryRunner\Annotations\DocBlockFactoryManager;
     use Alorel\PHPUnitRetryRunner\Annotations\Tags\RetryCount;
     use Alorel\PHPUnitRetryRunner\Annotations\Tags\SleepTime;
-    use Exception;
-    use PHPUnit_Framework_TestCase;
-    use ReflectionClass;
 
-    class RetriableTestCase extends PHPUnit_Framework_TestCase {
+    class PHPUnit_Retriable_TestCase extends PHPUnit_Framework_TestCase {
 
         private $sleepTime = 3;
 
@@ -71,8 +66,8 @@
                         if ($numRuns == $retryCount) {
                             throw $e;
                         } else {
-                            PHPUnitReflection::getMessage()->setValue($this, '');
-                            PHPUnitReflection::getStatus()->setValue($this, null);
+                            \Alorel\PHPUnitRetryRunner\PHPUnitReflection::getMessage()->setValue($this, '');
+                            \Alorel\PHPUnitRetryRunner\PHPUnitReflection::getStatus()->setValue($this, null);
 
                             fwrite(STDERR,
                                    $this->getName(false) . ' failed; waiting for ' . $sleepTime

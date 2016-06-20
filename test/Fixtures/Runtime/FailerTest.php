@@ -2,9 +2,9 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures\Runtime;
 
-    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
+    use PHPUnit_Retriable_TestCase;
 
-    class FailerTest extends RetriableTestCase {
+    class FailerTest extends PHPUnit_Retriable_TestCase {
 
         private $count = 1;
 

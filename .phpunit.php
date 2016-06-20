@@ -23,8 +23,3 @@
             require_once $loc;
         }
     });
-
-    function eimplode($cmd, &$out, &$code) {
-        exec($cmd, $o, $code);
-        $out = implode(PHP_EOL, $o);
-    }

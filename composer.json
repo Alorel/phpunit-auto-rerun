@@ -3,7 +3,7 @@
   "description": "todo",
   "prefer-stable": true,
   "type": "library",
-  "license": "MIT",
+  "license": "LGPL-2.1",
   "homepage": "https://github.com/Alorel/phpunit-auto-rerun",
   "keywords": [
     "phpunit",
@@ -30,6 +30,9 @@
     "files": [
       "src/PHPUnitReflection.php",
       "src/Annotations/DocBlockFactoryManager.php"
+    ],
+    "classmap": [
+      "src/PHPUnit_Retriable_TestCase.php"
     ]
   },
   "require": {
