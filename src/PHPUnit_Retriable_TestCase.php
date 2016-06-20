@@ -6,14 +6,13 @@
 
     class PHPUnit_Retriable_TestCase extends PHPUnit_Framework_TestCase {
 
-        private $sleepTime = 3;
+        private $sleepTime = 0;
 
         private $retryCount = 0;
 
         private $thisReflect;
 
-        /** @noinspection PhpMissingParentConstructorInspection */
-        function __construct() {
+        function __construct($name = null, array $data = [], $dataName = '') {
             $this->thisReflect = new ReflectionClass($this);
 
             if ($doc = $this->thisReflect->getDocComment()) {
@@ -26,7 +25,8 @@
                     $this->retryCount = (int)$parsed->getTagsByName(RetryCount::NAME)[0]->__toString();
                 }
             }
-            call_user_func_array('parent::__construct', func_get_args());
+
+            parent::__construct($name, $data, $dataName);
         }
 
         private function parseMethodAnnotations(&$sleepTime, &$retryCount) {

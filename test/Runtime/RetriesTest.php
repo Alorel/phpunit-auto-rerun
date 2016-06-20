@@ -2,6 +2,7 @@
 
     namespace Alorel\PHPUnitRetryRunner\Runtime;
 
+    use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\DataProviderTest;
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\ExceptionThrowerTest;
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\FailerTest;
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\StillFailingTest;
@@ -18,6 +19,7 @@
         function pTestExitZero() {
             yield ExceptionThrowerTest::class => [ExceptionThrowerTest::class];
             yield FailerTest::class => [FailerTest::class];
+            yield DataProviderTest::class => [DataProviderTest::class];
         }
 
         /** @dataProvider pTestFail */
@@ -33,7 +35,7 @@
         function pTestFail() {
             yield StillFailingTest::class => [
                 StillFailingTest::class,
-                'Tests: 1, Assertions: 3, Failures: 1.'
+                'Tests: 1, Assertions: 1, Failures: 1.'
             ];
         }
     }

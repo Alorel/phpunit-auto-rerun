@@ -1,6 +1,6 @@
 {
-  "name": "alorel/todo",
-  "description": "todo",
+  "name": "alorel/phpunit-auto-rerun",
+  "description": "Allows failed PHPUnit tests to automatically rerun.",
   "prefer-stable": true,
   "type": "library",
   "license": "LGPL-2.1",
@@ -9,6 +9,7 @@
     "phpunit",
     "auto",
     "rerun",
+    "retry",
     "failed",
     "test"
   ],
@@ -27,10 +28,6 @@
     "psr-4": {
       "Alorel\\PHPUnitRetryRunner\\": "src"
     },
-    "files": [
-      "src/PHPUnitReflection.php",
-      "src/Annotations/DocBlockFactoryManager.php"
-    ],
     "classmap": [
       "src/PHPUnit_Retriable_TestCase.php"
     ]

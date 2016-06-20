@@ -46,14 +46,6 @@
             self::$rName->setAccessible(true);
         }
 
-        /** @dataProvider pCountsOnConstruct */
-        function testCountsOnConstruct($fixtureClass, $expectedRetries, $expectedSleepTime) {
-            $o = new $fixtureClass();
-
-            $this->assertEquals($expectedRetries, self::$rAnnotationsRetryCount->getValue($o));
-            $this->assertEquals($expectedSleepTime, self::$rAnnotationsSleepTime->getValue($o));
-        }
-
         /** @dataProvider pMethodAnnotations */
         function testMethodAnnotations($method, $expectedSleep, $expectedRetry) {
             $actualSleep = null;
@@ -75,9 +67,29 @@
             yield 'noAnno()' => ['noAnno', 11, 15];
         }
 
+        /** @dataProvider pCountsOnConstruct */
+        function testCountsOnConstruct($fixtureClass, $expectedRetries, $expectedSleepTime) {
+            $o = new $fixtureClass();
+
+            $this->assertEquals($expectedRetries, self::$rAnnotationsRetryCount->getValue($o));
+            $this->assertEquals($expectedSleepTime, self::$rAnnotationsSleepTime->getValue($o));
+        }
+
         function pCountsOnConstruct() {
             yield [CaseWithAnnotations::class, 15, 11];
-            yield [CaseWithoutAnnotations::class, 0, 3];
+
+            $o = new PHPUnit_Retriable_TestCase();
+            $sleep = new \ReflectionProperty(PHPUnit_Retriable_TestCase::class, 'sleepTime');
+            $retry = new \ReflectionProperty(PHPUnit_Retriable_TestCase::class, 'retryCount');
+
+            $sleep->setAccessible(true);
+            $retry->setAccessible(true);
+
+            yield [
+                CaseWithoutAnnotations::class,
+                $retry->getValue($o),
+                $sleep->getValue($o)
+            ];
         }
 
         function testParamPassing() {
