@@ -8,7 +8,7 @@
 
         /**
          * @sleepTime  0
-         * @retryCount 3
+         * @retryCount 1
          */
         function testStillFails() {
             $this->assertTrue(false);
