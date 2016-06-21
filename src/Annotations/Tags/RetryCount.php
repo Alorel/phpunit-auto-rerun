@@ -23,6 +23,11 @@
          */
         const NAME = 'retryCount';
 
+        /**
+         * Error message
+         *
+         * @var string
+         */
         const MSG = 'The @retryCount tag value must be an integer >= 0';
 
         /**

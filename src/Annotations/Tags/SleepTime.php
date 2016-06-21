@@ -23,6 +23,11 @@
          */
         const NAME = 'sleepTime';
 
+        /**
+         * Error message
+         *
+         * @var string
+         */
         const MSG = 'The @sleepTime tag value must be an integer >= 0';
 
         /**
