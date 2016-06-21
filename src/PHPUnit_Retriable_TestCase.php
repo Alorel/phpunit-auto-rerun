@@ -10,7 +10,7 @@
      * examples.
      *
      * @author Art <a.molcanovas@gmail.com>
-     * @see    https://github.com/Alorel/phpunit-auto-rerun/#configuration
+     * @see https://github.com/Alorel/phpunit-auto-rerun/#configuration
      */
     class PHPUnit_Retriable_TestCase extends PHPUnit_Framework_TestCase {
 
