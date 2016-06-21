@@ -1,3 +1,17 @@
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alorel/phpunit-auto-rerun.svg)](http://isitmaintained.com/project/alorel/phpunit-auto-rerun "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/alorel/phpunit-auto-rerun.svg)](http://isitmaintained.com/project/alorel/phpunit-auto-rerun "Percentage of issues still open")
+[![Build Status](https://travis-ci.org/Alorel/phpunit-auto-rerun.svg?branch=master)](https://travis-ci.org/Alorel/phpunit-auto-rerun)
+[![codecov](https://codecov.io/gh/Alorel/phpunit-auto-rerun/branch/master/graph/badge.svg)](https://codecov.io/gh/Alorel/phpunit-auto-rerun)
+[![Dependency Status](https://www.versioneye.com/user/projects/57690975fdabcd003d0869e3/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57690975fdabcd003d0869e3)
+[![Reference Status](https://www.versioneye.com/php/alorel:phpunit-auto-rerun/reference_badge.svg)](https://www.versioneye.com/php/alorel:phpunit-auto-rerun/references)
+[![HHVM Status](http://hhvm.h4cc.de/badge/alorel/phpunit-auto-rerun.svg)](http://hhvm.h4cc.de/package/alorel/phpunit-auto-rerun)
+
+[![Latest Stable Version](https://poser.pugx.org/alorel/phpunit-auto-rerun/v/stable)](https://packagist.org/packages/alorel/phpunit-auto-rerun)
+[![Total Downloads](https://poser.pugx.org/alorel/phpunit-auto-rerun/downloads)](https://packagist.org/packages/alorel/phpunit-auto-rerun)
+[![License](https://poser.pugx.org/alorel/phpunit-auto-rerun/license)](https://packagist.org/packages/alorel/phpunit-auto-rerun)
+
+----------
+
 Allows failed [PHPUnit](https://phpunit.de/) tests to automatically rerun.
 
 # Use cases
