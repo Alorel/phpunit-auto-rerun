@@ -5,22 +5,39 @@
     use PHPUnit_Framework_TestCase as Test;
     use ReflectionProperty as Prop;
 
+    /**
+     * Utility class - contains accessible {@link PHPUnit_Framework_TestCase} properties
+     *
+     * @author Art <a.molcanovas@gmail.com>
+     */
     final class PHPUnitReflection {
 
         /**
-         * @var Prop
+         * The test status
+         * 
+*@var Prop
          */
         private static $status;
 
         /**
-         * @var Prop
+         * The test message
+         * 
+*@var Prop
          */
         private static $msg;
 
+        /**
+         * Returns the status property
+         * @return Prop
+         */
         static function getStatus() {
             return self::$status;
         }
 
+        /**
+         * Returns the message property
+         * @return Prop
+         */
         static function getMessage() {
             return self::$msg;
         }
