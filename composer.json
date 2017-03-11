@@ -3,7 +3,7 @@
   "description": "Allows failed PHPUnit tests to automatically rerun.",
   "prefer-stable": true,
   "type": "library",
-  "license": "LGPL-2.1",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/Alorel/phpunit-auto-rerun",
   "keywords": [
     "phpunit",
@@ -36,7 +36,6 @@
     "phpdocumentor/reflection-docblock": "^3.0"
   },
   "require-dev": {
-    "raveren/kint": "^1.0",
-    "phpunit/phpunit": "^5.0"
+    "raveren/kint": "^1.0"
   }
 }
