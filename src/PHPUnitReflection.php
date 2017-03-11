@@ -2,7 +2,6 @@
 
     namespace Alorel\PHPUnitRetryRunner;
 
-    use PHPUnit_Framework_TestCase as Test;
     use ReflectionProperty as Prop;
 
     /**
@@ -14,20 +13,21 @@
 
         /**
          * The test status
-         * 
-*@var Prop
+         *
+         * @var Prop
          */
         private static $status;
 
         /**
          * The test message
-         * 
-*@var Prop
+         *
+         * @var Prop
          */
         private static $msg;
 
         /**
          * Returns the status property
+         *
          * @return Prop
          */
         static function getStatus() {
@@ -36,6 +36,7 @@
 
         /**
          * Returns the message property
+         *
          * @return Prop
          */
         static function getMessage() {
@@ -43,11 +44,20 @@
         }
     }
 
+    if (class_exists('\PHPUnit_Framework_TestCase')) {
+        $class = '\PHPUnit_Framework_TestCase';
+    } elseif (class_exists('\PHPUnit\Framework\TestCase')) {
+        $class = '\PHPUnit\Framework\TestCase';
+    } else {
+        trigger_error('No PHPUnit framework class found', E_USER_ERROR);
+        die(1);
+    }
+
     $innerStatus = new Prop(PHPUnitReflection::class, 'status');
     $innerMsg = new Prop(PHPUnitReflection::class, 'msg');
 
-    $outerStatus = new Prop(Test::class, 'status');
-    $outerMsg = new Prop(Test::class, 'statusMessage');
+    $outerStatus = new Prop($class, 'status');
+    $outerMsg = new Prop($class, 'statusMessage');
 
     $innerStatus->setAccessible(true);
     $innerMsg->setAccessible(true);
