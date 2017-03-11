@@ -44,10 +44,10 @@
         }
     }
 
-    if (class_exists('\PHPUnit_Framework_TestCase')) {
-        $class = '\PHPUnit_Framework_TestCase';
-    } elseif (class_exists('\PHPUnit\Framework\TestCase')) {
+    if (class_exists('\PHPUnit\Framework\TestCase', true)) {
         $class = '\PHPUnit\Framework\TestCase';
+    } elseif (class_exists('\PHPUnit_Framework_TestCase', true)) {
+        $class = '\PHPUnit_Framework_TestCase';
     } else {
         trigger_error('No PHPUnit framework class found', E_USER_ERROR);
         die(1);
