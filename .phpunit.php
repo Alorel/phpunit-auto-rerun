@@ -17,10 +17,15 @@
         . __FILE__ . '" --no-globals-backup '
     );
 
+    define('PHPUNIT_AUTOLOAD_BASEDIR',
+           __DIR__ . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . getenv('SUITE') .
+           DIRECTORY_SEPARATOR);
+
+    echo 'Base dir set to ' . PHPUNIT_AUTOLOAD_BASEDIR . PHP_EOL;
+
     spl_autoload_register(function ($class) {
         $class = str_replace('Alorel\PHPUnitRetryRunner\\', '', $class);
-        $loc = __DIR__ . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . getenv('SUITE') . DIRECTORY_SEPARATOR .
-               str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+        $loc = PHPUNIT_AUTOLOAD_BASEDIR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
 
         if (file_exists($loc)) {
             /** @noinspection PhpIncludeInspection */

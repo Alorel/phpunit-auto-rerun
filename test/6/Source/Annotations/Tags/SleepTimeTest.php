@@ -5,9 +5,9 @@
     use Alorel\PHPUnitRetryRunner\Annotations\DocBlockFactoryManager;
     use Alorel\PHPUnitRetryRunner\Annotations\Tags\SleepTime as TagClass;
     use Alorel\PHPUnitRetryRunner\Fixtures\SleepTimeFixture as Fix;
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class SleepTimeTest extends TestCase {
+    class SleepTimeTest extends RetriableTestCase {
 
         /** @dataProvider provideGoodConstructor */
         function testGoodConstructor($method) {

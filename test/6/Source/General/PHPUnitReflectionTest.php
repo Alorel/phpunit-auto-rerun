@@ -3,9 +3,9 @@
     namespace Alorel\PHPUnitRetryRunner\Source\General;
 
     use Alorel\PHPUnitRetryRunner\PHPUnitReflection;
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class PHPUnitReflectionTest extends TestCase {
+    class PHPUnitReflectionTest extends RetriableTestCase {
 
         /** @dataProvider provide */
         function testCorrectReflection($method, $field) {

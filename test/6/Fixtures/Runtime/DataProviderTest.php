@@ -2,13 +2,14 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures\Runtime;
 
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
     use PHPUnit\Framework\TestCase;
 
     /**
      * @sleepTime  0
      * @retryCount 5
      */
-    class DataProviderTest extends TestCase {
+    class DataProviderTest extends RetriableTestCase {
 
         private $count = 1;
 

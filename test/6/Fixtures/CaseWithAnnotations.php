@@ -2,13 +2,13 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures;
 
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
     /**
      * @retryCount 15
      * @sleepTime  11
      */
-    class CaseWithAnnotations extends TestCase {
+    class CaseWithAnnotations extends RetriableTestCase {
 
         /**
          * @sleepTime 100

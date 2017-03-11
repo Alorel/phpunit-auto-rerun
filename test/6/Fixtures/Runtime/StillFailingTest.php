@@ -2,9 +2,9 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures\Runtime;
 
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class StillFailingTest extends TestCase {
+    class StillFailingTest extends RetriableTestCase {
 
         /**
          * @sleepTime  0

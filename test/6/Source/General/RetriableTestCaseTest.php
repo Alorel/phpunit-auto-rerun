@@ -4,10 +4,10 @@
 
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithAnnotations;
     use Alorel\PHPUnitRetryRunner\Fixtures\CaseWithoutAnnotations;
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
     use PHPUnit_Retriable_TestCase;
 
-    class RetriableTestCaseTest extends TestCase {
+    class RetriableTestCaseTest extends RetriableTestCase {
 
         /**
          * @var \ReflectionClass

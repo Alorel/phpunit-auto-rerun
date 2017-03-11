@@ -5,9 +5,9 @@
     use Alorel\PHPUnitRetryRunner\Annotations\DocBlockFactoryManager;
     use Alorel\PHPUnitRetryRunner\Annotations\Tags\RetryCount as TagClass;
     use Alorel\PHPUnitRetryRunner\Fixtures\RetryCountFixture as Fix;
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class RetryCountTest extends TestCase {
+    class RetryCountTest extends RetriableTestCase {
 
         /** @dataProvider provideGoodConstructor */
         function testGoodConstructor($method) {

@@ -2,9 +2,9 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures\Runtime;
 
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
-    class ExceptionThrowerTest extends TestCase {
+    class ExceptionThrowerTest extends RetriableTestCase {
 
         private $count = 1;
 

@@ -2,7 +2,7 @@
 
     namespace Alorel\PHPUnitRetryRunner\Fixtures\Runtime;
 
-    use PHPUnit_Retriable_TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
 
     /**
      * These are just normal test cases - testing to see that the plugin does not override default functionality
@@ -10,7 +10,7 @@
      * @sleepTime  0
      * @retryCount 0
      */
-    class NormalTest extends PHPUnit_Retriable_TestCase {
+    class NormalTest extends RetriableTestCase {
 
         private $curr = null;
         private $_curr = null;

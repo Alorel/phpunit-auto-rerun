@@ -6,10 +6,10 @@
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\ExceptionThrowerTest;
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\FailerTest;
     use Alorel\PHPUnitRetryRunner\Fixtures\Runtime\StillFailingTest;
-    use PHPUnit\Framework\TestCase;
+    use Alorel\PHPUnitRetryRunner\RetriableTestCase;
     use ReflectionClass as RC;
 
-    class RetriesTest extends TestCase {
+    class RetriesTest extends RetriableTestCase {
 
         /** @dataProvider pTestExitZero */
         function testExitZero($class) {
