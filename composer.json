@@ -29,7 +29,8 @@
       "Alorel\\PHPUnitRetryRunner\\": "src"
     },
     "classmap": [
-      "src/PHPUnit_Retriable_TestCase.php"
+      "src/PHPUnit_Retriable_TestCase.php",
+      "src/PHPUnit_Retriable_TestCase_Trait.php"
     ]
   },
   "require": {
