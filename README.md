@@ -29,7 +29,9 @@ composer require --dev alorel/phpunit-auto-rerun
 ```
 
 # Usage
-It is simply a class extending the original `PHPUnit_Framework_TestCase`, therefore all you need to do is replace the class in your test cases:
+You can integrate retry functionality in your tests in one of two ways: using class inheritance or using traits.
+
+In many situations, you can simply extend your test cases from `PHPUnit_Retriable_TestCase`, which itself extends the original `PHPUnit_Framework_TestCase`. Here, all you need to do is replace the class in your test cases:
 
 ```php
 <?php
@@ -45,6 +47,19 @@ would become
     namespace Some\Thing\Or\Another;
 
     class PHPUnitReflectionTest extends \PHPUnit_Retriable_TestCase {
+```
+
+In situations where your test cases have complex inheritance already, you can just use a trait in the test cases that need retry functionality:
+```php
+<?php
+
+    namespace Some\Thing\Or\Another;
+
+    class MyTestCase extends MyTestBase {
+
+        use \PHPUnit_Retriable_TestCase_Trait;
+
+    }
 ```
 
 # Modifying existing test cases/reverting back
